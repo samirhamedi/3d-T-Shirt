@@ -75,15 +75,18 @@ const customizer = () => {
     if (!prompt) return alert("please enter a prompt");
     try {
       setGeneratingImg(true);
-      const response = await fetch("http://localhost:8080/api/v1/dalle", {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          prompt,
-        }),
-      });
+      const response = await fetch(
+        "https://threed-t-shirt-79j1.onrender.com/api/v1/dalle",
+        {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            prompt,
+          }),
+        }
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch image");
       }
